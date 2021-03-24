@@ -1,0 +1,93 @@
+<html>
+<head>
+  <title>
+  </title>
+  <style>
+    body{
+  background:rgb(150 123 234);
+}
+.heading{
+  text-align:center;
+  margin:10px 70px ;
+  margin-bottem:0px;
+}
+form{
+  padding:10px 10px;
+  margin:20px 10px;
+  text-align:justify;
+}
+button{
+  border:1px solid black;
+  background-color:orange;
+  width:150px;
+  height:30px;
+  font-family:calibi;
+  align-items: center;
+}
+input{
+  width:350px;
+  outline:0px;
+  border:1px solid black;
+  
+}
+
+  </style>
+  <head>
+    <body>
+      <div class="heading">Details Form<hr></div>
+<form>
+ <table cellspacing="20px" cellpadding:"20px,20px">
+   <tr>
+     <td>Name: </td>
+     <td><input type="text" placeholder="Enter Username"></td>
+   </tr>
+   <tr>
+     <td>Mob.No.: </td>
+     <td><input type="text" placeholder="Enter Mob.No."></td>
+   </tr>
+   <tr>
+     <td>Email: </td>
+     <td><input type="text" placeholder="Enter Email Id "></td>
+   </tr>
+ </table>
+  <br>
+  <center><button><b>SUBMIT</b></button></center>
+</form>
+<hr>
+<table class="display" cellpadding="10px 10px" cellspacing="10px 10px">
+
+</table>
+<script>
+var input= document.querySelectorAll("input");
+var button=document.querySelector("button");
+//console.log(button.innerHTML);
+var displayTable=document.querySelector(".display");
+button.addEventListener("click", (e)=>{
+  e.preventDefault();
+    var userName=input[0].value;
+    var MobileNo=input[1].value;
+    var email=input[2].value;
+    //console.log(userName);
+  let pattName=/^[A-Za-z0-9]{3,20}$/;
+  let pattNumber=/^[789][0-9]{9}$/;
+  let pattEmail=  /^[A-Za-z0-9._-]{3,20}@[A-Za-z0-9]{3,20}[.][A-Za-z.]{3,6}$/;
+
+  if(pattName.test(userName)&&pattNumber.test(MobileNo)&&pattEmail.test(email)){
+      //console.log(userName);
+     //console.log(MobileNo);
+     //console.log(email);
+    input[0].value="";
+    input[1].value="";
+    input[2].value="";
+  }
+  else
+  alert('Fill all the details!')
+});
+ 
+
+
+
+
+</script>
+    </body>
+  </head>
